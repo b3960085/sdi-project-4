@@ -83,12 +83,17 @@ var library = function () {
 		return val.toFixed(2)
 	}
 	
+	var smallestNumber = function (val) {
+		return Math.min.apply( Math, val );
+	}
+	
 	return {
 		"isPhoneNumber": isPhoneNumber,
 		"isURL": isURL,
 		"isEmailAddress": isEmailAddress,
 		"addArrayNumbers": addArrayNumbers,
-		"dollarAmount": dollarAmount
+		"dollarAmount": dollarAmount,
+		"smallestNumber": smallestNumber
 	};
 }
 
@@ -113,7 +118,7 @@ console.log("@gmail.com: " + myLibrary.isEmailAddress("@gmail.com"));
 console.log("henry@.com: " + myLibrary.isEmailAddress("henry@.com"));
 console.log("jread@applecom: " + myLibrary.isEmailAddress("jread@applecom"));
 
-console.log("ARRAY ADDITION TESTS");
+console.log("ARRAY ADDITION");
 console.log("[0,1,2,3,4]: " + myLibrary.addArrayNumbers([0,1,2,3,4]));
 console.log("[1,a,2,3,4]: " + myLibrary.addArrayNumbers([1,"a",2,3,4]));
 
@@ -121,3 +126,7 @@ console.log("DOLLAR AMOUNT REPRESENTATION (WITH ROUNDING)");
 console.log("1: " + myLibrary.dollarAmount(1));
 console.log(".089: " + myLibrary.dollarAmount(.089));
 console.log("100.999: " + myLibrary.dollarAmount(100.999));
+
+console.log("SMALLEST ARRAY NUMBER");
+console.log("[0,1,2,3,4]: " + myLibrary.smallestNumber([0,1,2,3,4]));
+console.log("[100,80,20,30]: " + myLibrary.smallestNumber([100,80,20,30]));
