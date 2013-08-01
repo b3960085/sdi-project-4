@@ -57,7 +57,6 @@ var stringLibrary = function () {
 			var atIndex = val.indexOf("@");
 			if (val.substring(0, atIndex) != "") {
 				if (val.substring((atIndex + 1), (val.length - 4)) != "") {
-					console.log(val.substring((atIndex + 1), (val.length - 4)));
 					return true;
 				} else {
 					return false;
@@ -70,10 +69,21 @@ var stringLibrary = function () {
 		}
 	}
 	
+	var addArrayNumbers = function (val) {
+		var runningTotal = 0;
+        val.forEach(function (num) {
+        	if (!isNaN(num)) {
+	        	runningTotal += num;
+        	}
+        });
+        return runningTotal;
+	}
+	
 	return {
 		"isPhoneNumber": isPhoneNumber,
 		"isURL": isURL,
-		"isEmailAddress": isEmailAddress
+		"isEmailAddress": isEmailAddress,
+		"addArrayNumbers": addArrayNumbers
 	};
 }
 
@@ -97,3 +107,7 @@ console.log("georgegmail.com: " + myLibrary.isEmailAddress("georgegmail.com"));
 console.log("@gmail.com: " + myLibrary.isEmailAddress("@gmail.com"));
 console.log("henry@.com: " + myLibrary.isEmailAddress("henry@.com"));
 console.log("jread@applecom: " + myLibrary.isEmailAddress("jread@applecom"));
+
+console.log("ARRAY ADDITION TESTS");
+console.log("[0,1,2,3,4]: " + myLibrary.addArrayNumbers([0,1,2,3,4]));
+console.log("[1,a,2,3,4]: " + myLibrary.addArrayNumbers([1,"a",2,3,4]));
