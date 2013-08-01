@@ -2,7 +2,7 @@
     Project 4
     08/01/13 */
    
-var stringLibrary = function () {
+var library = function () {
 	var isPhoneNumber = function (val) {
 		var inputLength = val.length;
 		var dashPosition = [];
@@ -79,15 +79,20 @@ var stringLibrary = function () {
         return runningTotal;
 	}
 	
+	var dollarAmount = function (val) {
+		return val.toFixed(2)
+	}
+	
 	return {
 		"isPhoneNumber": isPhoneNumber,
 		"isURL": isURL,
 		"isEmailAddress": isEmailAddress,
-		"addArrayNumbers": addArrayNumbers
+		"addArrayNumbers": addArrayNumbers,
+		"dollarAmount": dollarAmount
 	};
 }
 
-var myLibrary = new stringLibrary();
+var myLibrary = new library();
 console.log("PHONE NUMBER TESTS");
 console.log("661-665-5585: " + myLibrary.isPhoneNumber("661-665-5585"));
 console.log("661-665-a585: " + myLibrary.isPhoneNumber("661-665-a585"));
@@ -111,3 +116,8 @@ console.log("jread@applecom: " + myLibrary.isEmailAddress("jread@applecom"));
 console.log("ARRAY ADDITION TESTS");
 console.log("[0,1,2,3,4]: " + myLibrary.addArrayNumbers([0,1,2,3,4]));
 console.log("[1,a,2,3,4]: " + myLibrary.addArrayNumbers([1,"a",2,3,4]));
+
+console.log("DOLLAR AMOUNT REPRESENTATION (WITH ROUNDING)");
+console.log("1: " + myLibrary.dollarAmount(1));
+console.log(".089: " + myLibrary.dollarAmount(.089));
+console.log("100.999: " + myLibrary.dollarAmount(100.999));
