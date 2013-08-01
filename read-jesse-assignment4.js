@@ -39,9 +39,14 @@ var stringLibrary = function () {
 		}
 	}
 	
+	var isEmailAddress = function (val) { 
+		return false;
+	}
+	
 	return {
 		"isPhoneNumber": isPhoneNumber,
-		"isURL": isURL
+		"isURL": isURL,
+		"isEmailAddress": isEmailAddress
 	};
 }
 
