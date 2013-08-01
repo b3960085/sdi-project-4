@@ -16,7 +16,6 @@ var library = function () {
 					}
 				}
 			}
-			console.log();
 			if (JSON.stringify(dashPosition) === JSON.stringify([3,7])) {
 				return true;
 			} else {
