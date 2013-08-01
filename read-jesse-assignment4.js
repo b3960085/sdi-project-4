@@ -30,3 +30,9 @@ var stringLibrary = function () {
 		"isPhoneNumber": isPhoneNumber,
 	};
 }
+var myLibrary = new stringLibrary();
+console.log("PHONE NUMBER TESTS");
+console.log("661-665-5585: " + myLibrary.isPhoneNumber("661-665-5585"));
+console.log("661-665-a585: " + myLibrary.isPhoneNumber("661-665-a585"));
+console.log("222: " + myLibrary.isPhoneNumber("222"));
+console.log("8881115555: " + myLibrary.isPhoneNumber("8881115555"));
