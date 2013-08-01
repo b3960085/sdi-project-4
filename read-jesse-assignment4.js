@@ -39,8 +39,35 @@ var stringLibrary = function () {
 		}
 	}
 	
-	var isEmailAddress = function (val) { 
-		return false;
+	var isEmailAddress = function (val) {
+		if (val.indexOf(".") != -1 && val.indexOf("@") != -1) {
+			var topLevel = val.substr(val.indexOf("."), 4);
+			switch (topLevel) {
+				case ".com":
+					break;
+				case ".edu": 
+					break;
+				case ".org":
+					break;
+				case ".net":
+					break;
+				default:
+					return false;
+			}
+			var atIndex = val.indexOf("@");
+			if (val.substring(0, atIndex) != "") {
+				if (val.substring((atIndex + 1), (val.length - 4)) != "") {
+					console.log(val.substring((atIndex + 1), (val.length - 4)));
+					return true;
+				} else {
+					return false;
+				}
+			} else {
+ 				return false; 
+			}
+		} else {
+			return false;
+		}
 	}
 	
 	return {
@@ -62,3 +89,11 @@ console.log("http://google.com/: " + myLibrary.isURL("http://google.com/"));
 console.log("https://fullsail.edu/: " + myLibrary.isURL("https://fullsail.edu/"));
 console.log("httpgoogle.com: " + myLibrary.isURL("httpgoogle.com"));
 console.log("ftp://fileserver.local: " + myLibrary.isURL("ftp://fileserver.local"));
+
+console.log("EMAIL ADDRESS TESTS");
+console.log("jesse@fullsail.edu: " + myLibrary.isEmailAddress("jesse@fullsail.edu"));
+console.log("mike@google.radius: " + myLibrary.isEmailAddress("mike@google.radius"));
+console.log("georgegmail.com: " + myLibrary.isEmailAddress("georgegmail.com"));
+console.log("@gmail.com: " + myLibrary.isEmailAddress("@gmail.com"));
+console.log("henry@.com: " + myLibrary.isEmailAddress("henry@.com"));
+console.log("jread@applecom: " + myLibrary.isEmailAddress("jread@applecom"));
